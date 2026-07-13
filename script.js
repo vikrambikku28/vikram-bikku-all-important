@@ -1,12 +1,19 @@
-function searchService() {
-    let input = document.getElementById("search").value.toLowerCase();
-    let buttons = document.querySelectorAll("button");
+function searchButtons() {
+  let input = document.getElementById("searchBox").value.toLowerCase().trim();
 
-    buttons.forEach(function(button) {
-        if (button.innerText.toLowerCase().includes(input)) {
-            button.style.display = "inline-block";
-        } else {
-            button.style.display = "none";
-        }
-    });
+  let items = document.querySelectorAll("button, .card, h2");
+
+  items.forEach(function(item) {
+    let text = item.textContent.toLowerCase();
+
+    if (text.includes(input) || input === "") {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+function darkMode(){
+    document.body.classList.toggle("dark");
 }
